@@ -11,7 +11,7 @@ function DappPage() {
   const navBarItems = ["Home", "Supply", "Borrow", "Markets"];
   return (
     <>
-      {isAppReady ? (
+      {false ? (
         <>
           <Header
             isAccountVisible={isAccountReady}
