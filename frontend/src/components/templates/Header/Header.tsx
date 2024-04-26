@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Account from "../../organisms/Account/Account";
 import Flag from "../../atoms/Flag/Flag";
-import Logo from "../../../assets/images/icons/vStreet-navbar-icon.svg";
+import Logo from "../../../assets/images/icons//vStreet-Navbar-Color-White.png";
 import styles from "../../molecules/wallet/Wallet.module.scss";
 import BurgerMenu from "components/organisms/BurgerMenu";
 
@@ -16,7 +16,7 @@ function Header({ isAccountVisible, items, isMobile }: Props) {
   const [activeTab, setActiveTab] = useState<string | null>("borrow");
   const navigate = useNavigate();
   const location = useLocation();
-
+  const isTablet = window.innerWidth < 822;
   const isDapp = location.pathname !== "/";
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function Header({ isAccountVisible, items, isMobile }: Props) {
   return (
     <header>
       <img src={Logo} alt="Logo" onClick={() => navigate("/")} />
-      {isMobile ? (
+      {isMobile || isTablet ? (
         <BurgerMenu items={items} />
       ) : (
         <>
